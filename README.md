@@ -74,3 +74,50 @@ AND
 ContactTitle = "Owner";
 ```
 In this case we are going to obtain all the results of customers on which their name starts with an "A" and their Contact Title is owner. We will introduce as many conditions as we want separated by an "AND".
+
+###  Showing the content from multiple tables.
+```sql
+SELECT * FROM Orders, Customers
+WHERE
+Orders.CustomerID = Customers.CustomerID
+```
+
+In this case we are getting the results from two different tables, Orders and Customers, and we want to get all the orders and the customer information from those orders. In this case we need to link together both tables. In the orders table we have a field called CustomerID that correspond to the unique ID of the customer, there is only one CustomerID per customer making it unique.
+
+If we don't link together the tables I will have as a result all the possible combinations of customers with all the orders.
+
+### Math Operations on Queries.
+#### Counting the results.
+
+```sql
+SELECT count(*) FROM Customers;
+```
+
+
+
+
+#### Calculate the sum on the results.
+
+```sql
+SELECT SUM(Quantity) as "Total Products" FROM "Order Details";
+```
+In this case we will get the sum of all products in all the orders, so the total quantity of products sold.
+
+#### Calculate the total cost per product in an order
+```sql
+SELECT OrderID, ProductID, (UnitPrice*Quantity)-(UnitPrice*Quantity*Discount) as ProductTotal FROM "Order Details";
+```
+
+In this case we are getting the order id, the product id and the total cost including the discount of the product.
+
+
+### Everything together
+
+```sql
+SELECT OD.OrderID,ProductName, (OD.UnitPrice*OD.Quantity)-(OD.UnitPrice*OD.Quantity*OD.Discount) as ProductTotal
+FROM "Order Details" as OD, Products
+WHERE
+OD.ProductID = Products.ProductID
+```
+
+In this case we will get the Total Price quantity of every product per OrderID from The Order Details table and the name of the product from the Products table.
