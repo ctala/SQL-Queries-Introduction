@@ -91,12 +91,38 @@ GROUP BY Products.ProductID
 ```
 
 
-### Orders by day shipped by United Package in 1994.
-Show a report that includes Company Name, Shipped Date, and numbers of orders by ship
-date for this company.
+### Orders by day shipped by United Package in 1996.
+Show a report that includes Company Name, Shipped Date, and numbers of orders by ship date for this company.
 
+```sql
+SELECT Customers.CompanyName, Orders.ShippedDate,
+count(*) as "Qty Shipped"
+FROM Orders, Shippers, Customers
+WHERE
+Orders.ShipVia = Shippers.ShipperID
+AND
+Orders.CustomerID = Customers.CustomerID
+AND
+Shippers.CompanyName = "United Package"
+AND
+ShippedDate >= "1996-01-01"
+AND
+ShippedDate <= "1996-12-31"
 
+GROUP BY Customers.CompanyName, Orders.ShippedDate
+ORDER BY Orders.ShippedDate;
 
-For each customer, how many UNIQUE orders were placed, what was the total sales before
-a discount (Unit Price * Quantity), total discounts given to each customer, and total sales
-after the discount.
+```
+
+### Unique orders by Customer, total sales of order, total discount of order and total after discount.
+
+```sql
+SELECT Orders.CustomerID,Orders.OrderID, SUM(OD.UnitPrice*OD.Quantity) as "Total Order",
+SUM((OD.UnitPrice*OD.Quantity)*Discount) as "Total Discount",
+SUM(OD.UnitPrice*OD.Quantity)-SUM((OD.UnitPrice*OD.Quantity)*Discount) as "Total after Discount"
+
+FROM Orders,"Order Details" as OD
+WHERE
+Orders.OrderID = OD.OrderID
+GROUP BY Orders.OrderID;
+```
