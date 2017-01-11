@@ -89,3 +89,14 @@ Products.Discontinued = 1
 GROUP BY Products.ProductID
 ;
 ```
+
+
+### Orders by day shipped by United Package in 1994.
+Show a report that includes Company Name, Shipped Date, and numbers of orders by ship
+date for this company.
+
+
+
+For each customer, how many UNIQUE orders were placed, what was the total sales before
+a discount (Unit Price * Quantity), total discounts given to each customer, and total sales
+after the discount.
