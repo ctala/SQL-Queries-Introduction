@@ -2,9 +2,17 @@
 
 We are going to use SQLite as a Database Engine to try the SQL Queries.
 
+* Version : 1.0.0
+* Created : 10/01/2017
+* Updated : 11/11/2017
+
+
 ## Files attached :
-* Northwind.sqlite : The actual database that can be open with any SQLite editor.
-* Northwind.Sqlite3.sql : Includes the SQL code to create the Database.
+* [Northwind.sqlite][62b46cf0] : The actual database that can be open with any SQLite editor.
+* [Northwind.Sqlite3.sql][a8dd8a9a] : Includes the SQL code to create the Database.
+
+  [62b46cf0]: Northwind.sqlite "Test Database Northwind"
+  [a8dd8a9a]: Northwind.Sqlite3.sql "Sql to create Northwind Database"
 
 ## Docs
 * [Functions and Operators][72e3ee27]
@@ -18,6 +26,7 @@ We are going to use SQLite as a Database Engine to try the SQL Queries.
 
 ## How to run the database:
 The easiest way to run the database is to download the code of this repository and upload the Northwind.sqlite to an online SQLite manager like https://sqliteonline.com/.
+
 
 
 ## Queries
