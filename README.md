@@ -6,6 +6,11 @@ We are going to use SQLite as a Database Engine to try the SQL Queries.
 * Northwind.sqlite : The actual database that can be open with any SQLite editor.
 * Northwind.Sqlite3.sql : Includes the SQL code to create the Database.
 
+## Docs
+* [Functions and Operators][72e3ee27]
+
+  [72e3ee27]: DOCS/Operators.md "Functions and Operators in Sqlite"
+
 ## Examples
 * [Northwind Database examples][46a5efff]
 
